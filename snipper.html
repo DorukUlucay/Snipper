@@ -10,6 +10,17 @@
     <script src="http://codemirror.net/addon/edit/continuecomment.js"></script>
     <script src="http://codemirror.net/mode/javascript/javascript.js"></script>
     <script src="http://codemirror.net/mode/sql/sql.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-css.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-html.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.7.5/beautify-html.min.js"></script>
+    <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.7.5/js/lib/beautify.js"></script>
+    <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.7.5/js/lib/beautify-css.js"></script>
+    <script src="https://cdn.rawgit.com/beautify-web/js-beautify/v1.7.5/js/lib/beautify-html.js"></script>
+
 </head>
 
 <style>
@@ -57,6 +68,7 @@
 		</select>
         <button id="btnSave">Save</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button id="btnNew">New Snip</button>
+        <button id="btnBeautifyJavaScript">Beautify Javascript</button>
     </div>
 
     <div>
@@ -88,14 +100,21 @@
             changeMode(selected);
         });
 
+        $("#btnBeautifyJavaScript").on("click", function(clicked) {
+            var x = js_beautify(editableCodeMirror.getValue());
+            editableCodeMirror.setValue(x);            
+        });
+
 
         //other
         function changeMode(lang) {
             $("#snipType").val(lang);
             if (lang == "SQL") {
                 editableCodeMirror.setOption("mode", "text/x-sql");
+                $("#btnBeautifyJavaScript").hide();
             } else if (lang == "Javascript") {
                 editableCodeMirror.setOption("mode", "javascript");
+                $("#btnBeautifyJavaScript").show();
             }
         }
 
@@ -138,6 +157,7 @@
                 lineNumbers: true
             });
             getSnips();
+            $("#btnBeautifyJavaScript").hide();
         });
 
         function save() {
