@@ -6,3 +6,4 @@ Snippet manager
 * CDN'lerdeki Css ve Js'ler indirilecek.
 * Beautify özelliği eklenecek.
   * JS Beautify eklendi.
+* Safari, Firefox ve IE'de test edilecek.
