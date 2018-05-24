@@ -1,0 +1,31 @@
+.top {
+    height: 4%;
+    width: 98%;
+    background-color: gray;
+    padding: 5px;
+    margin-bottom: 5px;
+
+}
+
+.navigator {
+    height: 94%;
+    width: 19%;
+    float: left;
+    margin-right: 5px;
+}
+
+.content {
+    height: 94%;
+    width: 80%
+}
+
+.navigatorSelect {
+    width: 100%;
+    height: 100%;
+}
+
+.CodeMirror {
+    border: 1px solid #eee;
+    height: auto;
+
+}
