@@ -7,5 +7,4 @@ Snippet manager
 * Beautify özelliği eklenecek.
   * JS Beautify eklendi.
 * Safari, Firefox ve IE'de test edilecek.
-* Lisanslı yeni repo'ya geçilecek
 * css & js bundling.
